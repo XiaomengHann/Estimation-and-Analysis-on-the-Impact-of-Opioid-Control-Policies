@@ -81,4 +81,4 @@ test._merge.value_counts()
 drug_deaths_by_state_year_county_fip = pd.merge(drug_deaths_by_state_year_county ,fips, left_on = ["County_Name", "State"], right_on = ["Name","State"], how = "left", validate="m:1")
     
     
-drug_deaths_by_state_year_county.to_csv(path + "Drug Deaths aggregated by State,County and Year fip.csv", index = False)
+drug_deaths_by_state_year_county_fip.to_csv(path + "Drug Deaths aggregated by State,County and Year fip.csv", index = False)
