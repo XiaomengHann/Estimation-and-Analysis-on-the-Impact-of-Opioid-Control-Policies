@@ -152,3 +152,4 @@ venv.bak/
 20_intermediate_files/By_State_Parquet/arcos_wi.parquet
 20_intermediate_files/By_State_Parquet/arcos_wv.parquet
 20_intermediate_files/By_State_Parquet/arcos_wy.parquet
+20_intermediate_files/.DS_Store
