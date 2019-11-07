@@ -58,4 +58,4 @@ arcos_merged =  pd.merge(arcos_all, FIPS_list, on=['COUNTY','STATE'], how='left'
 arcos_merged[arcos_merged['FIPS'].isna()]
 
 #write to file
-arcos_all.to_csv('../20_intermediate_files/arcos_grouped_all_FIPS.csv')
+arcos_merged.to_csv('../20_intermediate_files/arcos_grouped_all_FIPS.csv')
