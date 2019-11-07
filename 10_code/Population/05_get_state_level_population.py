@@ -7,4 +7,4 @@ for i in range(57):
 
 state_2003_2015 = pop_2003_2015.loc[pop_2003_2015['FIPS'].isin(state),]
 
-state_2003_2015.to_csv('population_2003_2015_state_level')
+state_2003_2015.to_csv(outpath + 'population_2003_2015_state_level.csv')
