@@ -27,7 +27,6 @@ arcos_all[(arcos_all['COUNTY']=='LAMOURE') & (arcos_all['STATE']=='ND')] = arcos
 arcos_all[(arcos_all['COUNTY']=='LAGRANGE') & (arcos_all['STATE']=='IN')] = arcos_all[(arcos_all['COUNTY']=='LAGRANGE') & (arcos_all['STATE']=='IN')].replace("LAGRANGE", "LA GRANGE")
 arcos_all[arcos_all['COUNTY']=='DEKALB'] = arcos_all[arcos_all['COUNTY']=='DEKALB'].replace("DEKALB", "DE KALB")
 arcos_all[(arcos_all['COUNTY']=='SAINT BERNARD') & (arcos_all['STATE']=='LA')] = arcos_all[(arcos_all['COUNTY']=='SAINT BERNARD') & (arcos_all['STATE']=='LA')].replace("SAINT BERNARD", "ST BERNARD")
-arcos_all[(arcos_all['COUNTY']=='ST JOSEPH') & (arcos_all['STATE']=='IN')] = arcos_all[(arcos_all['COUNTY']=='ST JOSEPH') & (arcos_all['STATE']=='IN')].replace("ST JOSEPH", "SAINT JOSEPH")
 arcos_all[arcos_all['COUNTY']=='DEWITT'] = arcos_all[arcos_all['COUNTY']=='DEWITT'].replace("DEWITT", "DE WITT")
 arcos_all[(arcos_all['COUNTY']=='DUPAGE') & (arcos_all['STATE']=='IL')] = arcos_all[(arcos_all['COUNTY']=='DUPAGE') & (arcos_all['STATE']=='IL')].replace("DUPAGE", "DU PAGE")
 arcos_all[(arcos_all['COUNTY']=='MATANUSKA SUSITNA') & (arcos_all['STATE']=='AK')] = arcos_all[(arcos_all['COUNTY']=='MATANUSKA SUSITNA') & (arcos_all['STATE']=='AK')].replace("MATANUSKA SUSITNA", "MATANUSKA-SUSITNA")
@@ -36,7 +35,6 @@ arcos_all[(arcos_all['COUNTY']=='PRINCE OF WALES HYDER') & (arcos_all['STATE']==
 arcos_all[(arcos_all['COUNTY']=='SKAGWAY') & (arcos_all['STATE']=='AK')] = arcos_all[(arcos_all['COUNTY']=='SKAGWAY') & (arcos_all['STATE']=='AK')].replace('SKAGWAY', 'SKAGWAY-HOONAH-ANGOON')
 arcos_all[(arcos_all['COUNTY']=='VALDEZ CORDOVA') & (arcos_all['STATE']=='AK')] = arcos_all[(arcos_all['COUNTY']=='VALDEZ CORDOVA') & (arcos_all['STATE']=='AK')].replace('VALDEZ CORDOVA', 'VALDEZ-CORDOVA')
 arcos_all[(arcos_all['COUNTY']=='WRANGELL') & (arcos_all['STATE']=='AK')] = arcos_all[(arcos_all['COUNTY']=='WRANGELL') & (arcos_all['STATE']=='AK')].replace('WRANGELL', 'WRANGELL-PETERSBURG')
-arcos_all[arcos_all['COUNTY']=='SAINT JOSEPH'] = arcos_all[arcos_all['COUNTY']=='SAINT JOSEPH'].replace('SAINT JOSEPH', 'ST CLAIR')
 arcos_all[(arcos_all['COUNTY']=='OBRIEN') & (arcos_all['STATE']=='IA')] = arcos_all[(arcos_all['COUNTY']=='OBRIEN') & (arcos_all['STATE']=='IA')].replace('OBRIEN', 'O BRIEN')
 arcos_all[(arcos_all['COUNTY']=='BRISTOL') & (arcos_all['STATE']=='VA')] = arcos_all[(arcos_all['COUNTY']=='BRISTOL') & (arcos_all['STATE']=='VA')].replace('BRISTOL', 'BRISTOL CITY')
 arcos_all[(arcos_all['COUNTY']=='COLONIAL HEIGHTS CITY') & (arcos_all['STATE']=='VA')] = arcos_all[(arcos_all['COUNTY']=='COLONIAL HEIGHTS CITY') & (arcos_all['STATE']=='VA')].replace('COLONIAL HEIGHTS CITY', 'COLONIAL HEIGHTS CIT')
@@ -45,12 +43,13 @@ arcos_all[(arcos_all['COUNTY']=='SALEM') & (arcos_all['STATE']=='VA')] = arcos_a
 arcos_all[arcos_all['COUNTY']=='DESOTO'] = arcos_all[arcos_all['COUNTY']=='DESOTO'].replace("DESOTO", "DE SOTO")
 arcos_all[(arcos_all['COUNTY']=='STE GENEVIEVE') & (arcos_all['STATE']=='MO')] = arcos_all[(arcos_all['COUNTY']=='STE GENEVIEVE') & (arcos_all['STATE']=='MO')].replace('STE GENEVIEVE', 'STE. GENEVIEVE')
 
-# #merge testing
-#merge_arcos_test = pd.merge(arcos_all,FIPS_list, left_on = ['COUNTY','STATE'], right_on = ['COUNTY','STATE'], how = "outer", validate="m:1", indicator = True)
-#merge_arcos_test._merge.value_counts()
 #Deleted these rows from arcos_all. Broomfield wasn't in our FIPS data due to an outdated FIPS list, and St. Clair, IN doesn't exist.
 arcos_all = arcos_all[~((arcos_all['COUNTY']=='BROOMFIELD') & (arcos_all['STATE']=='CO'))]
 arcos_all = arcos_all[~((arcos_all['COUNTY']=='ST CLAIR') & (arcos_all['STATE']=='IN'))]
+
+# #merge testing
+#merge_arcos_test = pd.merge(arcos_all,FIPS_list, left_on = ['COUNTY','STATE'], right_on = ['COUNTY','STATE'], how = "outer", validate="m:1", indicator = True)
+#merge_arcos_test._merge.value_counts()
 
 #merge
 arcos_merged =  pd.merge(arcos_all, FIPS_list, on=['COUNTY','STATE'], how='left', )
