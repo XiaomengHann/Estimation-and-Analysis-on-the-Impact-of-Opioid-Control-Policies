@@ -42,14 +42,15 @@ arcos_all[(arcos_all['COUNTY']=='RADFORD') & (arcos_all['STATE']=='VA')] = arcos
 arcos_all[(arcos_all['COUNTY']=='SALEM') & (arcos_all['STATE']=='VA')] = arcos_all[(arcos_all['COUNTY']=='SALEM') & (arcos_all['STATE']=='VA')].replace('SALEM', 'SALEM CITY')
 arcos_all[arcos_all['COUNTY']=='DESOTO'] = arcos_all[arcos_all['COUNTY']=='DESOTO'].replace("DESOTO", "DE SOTO")
 arcos_all[(arcos_all['COUNTY']=='STE GENEVIEVE') & (arcos_all['STATE']=='MO')] = arcos_all[(arcos_all['COUNTY']=='STE GENEVIEVE') & (arcos_all['STATE']=='MO')].replace('STE GENEVIEVE', 'STE. GENEVIEVE')
+arcos_all[(arcos_all['COUNTY']=='DISTRICT OF COLUMBIA') & (arcos_all['STATE']=='DC')] = arcos_all[(arcos_all['COUNTY']=='DISTRICT OF COLUMBIA') & (arcos_all['STATE']=='DC')].replace('DISTRICT OF COLUMBIA', 'WASHINGTON')
 
 #Deleted these rows from arcos_all. Broomfield wasn't in our FIPS data due to an outdated FIPS list, and St. Clair, IN doesn't exist.
 arcos_all = arcos_all[~((arcos_all['COUNTY']=='BROOMFIELD') & (arcos_all['STATE']=='CO'))]
 arcos_all = arcos_all[~((arcos_all['COUNTY']=='ST CLAIR') & (arcos_all['STATE']=='IN'))]
 
 # #merge testing
-#merge_arcos_test = pd.merge(arcos_all,FIPS_list, left_on = ['COUNTY','STATE'], right_on = ['COUNTY','STATE'], how = "outer", validate="m:1", indicator = True)
-#merge_arcos_test._merge.value_counts()
+merge_arcos_test = pd.merge(arcos_all,FIPS_list, left_on = ['COUNTY','STATE'], right_on = ['COUNTY','STATE'], how = "outer", validate="m:1", indicator = True)
+merge_arcos_test._merge.value_counts()
 
 #merge
 arcos_merged =  pd.merge(arcos_all, FIPS_list, on=['COUNTY','STATE'], how='left', )
