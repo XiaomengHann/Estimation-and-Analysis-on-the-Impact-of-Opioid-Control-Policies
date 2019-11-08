@@ -102,6 +102,20 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+20_intermediate_files/By_State_Parquet/arcos_ak.parquet
+20_intermediate_files/By_State_Parquet/arcos_al.parquet
+20_intermediate_files/By_State_Parquet/arcos_ar.parquet
+20_intermediate_files/By_State_Parquet/arcos_az.parquet
+20_intermediate_files/By_State_Parquet/arcos_ca.parquet
+20_intermediate_files/By_State_Parquet/arcos_co.parquet
+20_intermediate_files/By_State_Parquet/arcos_ct.parquet
+20_intermediate_files/By_State_Parquet/arcos_de.parquet
+20_intermediate_files/By_State_Parquet/arcos_fl.parquet
+20_intermediate_files/By_State_Parquet/arcos_ga.parquet
+20_intermediate_files/By_State_Parquet/arcos_hi.parquet
+20_intermediate_files/By_State_Parquet/arcos_ia.parquet
+20_intermediate_files/By_State_Parquet/arcos_id.parquet
 20_intermediate_files/By_State_Parquet/arcos_il.parquet
 20_intermediate_files/By_State_Parquet/arcos_in.parquet
 20_intermediate_files/By_State_Parquet/arcos_ks.parquet
@@ -139,17 +153,5 @@ venv.bak/
 20_intermediate_files/By_State_Parquet/arcos_wi.parquet
 20_intermediate_files/By_State_Parquet/arcos_wv.parquet
 20_intermediate_files/By_State_Parquet/arcos_wy.parquet
-20_intermediate_files/By_State_Parquet/arcos_id.parquet
-20_intermediate_files/By_State_Parquet/arcos_ia.parquet
-20_intermediate_files/By_State_Parquet/arcos_hi.parquet
-20_intermediate_files/By_State_Parquet/arcos_ga.parquet
-20_intermediate_files/By_State_Parquet/arcos_fl.parquet
-20_intermediate_files/By_State_Parquet/arcos_de.parquet
-20_intermediate_files/By_State_Parquet/arcos_ct.parquet
-20_intermediate_files/By_State_Parquet/arcos_co.parquet
-20_intermediate_files/By_State_Parquet/arcos_ca.parquet
-20_intermediate_files/By_State_Parquet/arcos_az.parquet
-20_intermediate_files/By_State_Parquet/arcos_ar.parquet
-20_intermediate_files/By_State_Parquet/arcos_al.parquet
-20_intermediate_files/By_State_Parquet/arcos_ak.parquet
-.DS_Store
+20_intermediate_files/.DS_Store
+
