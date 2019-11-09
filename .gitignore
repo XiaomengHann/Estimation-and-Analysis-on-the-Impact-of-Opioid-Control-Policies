@@ -102,6 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
 20_intermediate_files/By_State_Parquet/arcos_ak.parquet
 20_intermediate_files/By_State_Parquet/arcos_al.parquet
 20_intermediate_files/By_State_Parquet/arcos_ar.parquet
@@ -153,3 +154,4 @@ venv.bak/
 20_intermediate_files/By_State_Parquet/arcos_wv.parquet
 20_intermediate_files/By_State_Parquet/arcos_wy.parquet
 20_intermediate_files/.DS_Store
+

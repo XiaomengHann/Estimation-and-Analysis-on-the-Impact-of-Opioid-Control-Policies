@@ -19,6 +19,8 @@ len(path_list)
 
 arcos_all = pd.concat([pd.read_parquet(path, engine='fastparquet') for path in tqdm(path_list)], ignore_index=True)
 arcos_all.STATE.value_counts()
+
 arcos_all = arcos_all.drop(['DRUG_CODE'], axis=1)
 
 arcos_all.to_csv('arcos_grouped_all.csv')
+

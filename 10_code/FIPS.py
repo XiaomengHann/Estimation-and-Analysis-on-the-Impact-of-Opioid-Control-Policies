@@ -18,9 +18,7 @@ FIPS_list.rename(columns={"Name":"COUNTY","State":"STATE"},inplace=True)
 FIPS_list['COUNTY'] = FIPS_list['COUNTY'].str.upper()
 
 #FIXES
-
 #NOTE OUR FIPS DATA IS OLD https://www.cdc.gov/nchs/data/nvss/bridged_race/County_Geography_Changes.pdf im pretty sure our FIPS data is old. fml.. Prince of Wales-Hyder Census Area (FIPS code = 02198). Prince of Wales-Hyder Census Area was created from the remainder of the former Prince of Wales-Outer Ketchikan Census Area (FIPS code = 02201) after part (Outer Ketchikan) was annexed by Ketchikan Gateway Borough (FIPS code = 02130) effective May 19, 2008 and another part was included in the new Wrangell Borough (effective June 1, 2008). Note that no data for this Census Area appear on NCHS birth and mortality files.
-
 arcos_all['COUNTY'] = arcos_all['COUNTY'].replace('SAINT','ST', regex = True)
 arcos_all[(arcos_all['COUNTY']=='LAMOURE') & (arcos_all['STATE']=='ND')] = arcos_all[(arcos_all['COUNTY']=='LAMOURE') & (arcos_all['STATE']=='ND')].replace("LAMOURE", "LA MOURE")
 #2 - Broomfield, CO was missing from FIPS_list. Deleted the data
@@ -49,8 +47,8 @@ arcos_all = arcos_all[~((arcos_all['COUNTY']=='BROOMFIELD') & (arcos_all['STATE'
 arcos_all = arcos_all[~((arcos_all['COUNTY']=='ST CLAIR') & (arcos_all['STATE']=='IN'))]
 
 # #merge testing
-merge_arcos_test = pd.merge(arcos_all,FIPS_list, left_on = ['COUNTY','STATE'], right_on = ['COUNTY','STATE'], how = "outer", validate="m:1", indicator = True)
-merge_arcos_test._merge.value_counts()
+#merge_arcos_test = pd.merge(arcos_all,FIPS_list, left_on = ['COUNTY','STATE'], right_on = ['COUNTY','STATE'], how = "outer", validate="m:1", indicator = True)
+#merge_arcos_test._merge.value_counts()
 
 #merge
 arcos_merged =  pd.merge(arcos_all, FIPS_list, on=['COUNTY','STATE'], how='left', )
