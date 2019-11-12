@@ -8,11 +8,11 @@ prescriptions = pd.read_csv("../../20_intermediate_files/Prescriptions_Intermedi
 
 #Merge prescriptions
 
-prescriptions = prescriptions.drop(columns = ['Unnamed: 0','Unnamed: 0.1']) 
+prescriptions = prescriptions.drop(columns = ['Unnamed: 0','Unnamed: 0.1'])
 prescriptions.rename(columns={'YEAR':'Year'}, inplace=True)
-
-mergedUSA=pd.merge(merged0,prescriptions,on=['FIPS','Year'],how='left',validate="m:m", indicator=True)
-
+prescriptions = prescriptions.drop(prescriptions[prescriptions.duplicated(subset=['FIPS','Year'])].index, axis = 0)
+#mergedUSA=pd.merge(merged0,prescriptions,on=['FIPS','Year'],how='left',validate="m:m", indicator=True)merged0.head()
+mergedUSA=pd.merge(merged0,prescriptions,on=['FIPS','Year'],how='outer',validate="1:1", indicator=True)
 mergedUSA._merge.value_counts()
 
 left=(mergedUSA[mergedUSA['_merge']=='left_only'])
@@ -24,7 +24,7 @@ left.Year.value_counts()
 #States=['Florida','Washington','Texas']
 
 #dropmerge column and set up policy states and policy years
-mergedUSA = mergedUSA.drop(columns = ['_merge']) 
+mergedUSA = mergedUSA.drop(columns = ['_merge'])
 mergedUSA['PolState']=0
 mergedUSA.PolState[mergedUSA['STNAME']=='Florida']=1
 mergedUSA.PolState[mergedUSA['STNAME']=='Washington']=1
@@ -64,7 +64,7 @@ for i in States:
     p=(ggplot(mergedUSA, aes(x='Year', y='DeathsPC')) +
            geom_point(data=Florida)+
             geom_smooth(data=Florida)
-   
+
     )
 
     print(p)
@@ -107,7 +107,7 @@ PrePostT=(ggplot(State, aes(x='Year', y='DeathsPC')) +
   )
 
 PrePostT
-    
+
 ## Not sure of anything yet
 
 #### Difference in Difference
@@ -168,7 +168,7 @@ Florida=mergedUSA[mergedUSA['STNAME']=='Florida']
 p=(ggplot(Florida, aes(x='Year', y='PrescribePC')) +
         geom_point() +
        geom_smooth()
-   
+
 )
 
 p
@@ -200,4 +200,3 @@ DifDifFP
 
 PrePostFP.save("../../30_results/Graphs/FloridaPRESCRIBEPrePost.png")
 DifDifFP.save("../../30_results/Graphs/FloridaPRESCRIBEDifDif.png")
-
