@@ -14,10 +14,7 @@ cwd = os.getcwd()
 print("Current working directory is:", cwd)
 %pwd
 
-arcos-ak-statewide-itemized.tsv.gz
-arcos-in-statewide-itemized.tsv.gz
 path_list = glob('By_State/*-in-*.gz')
-state_list = ['al', 'ak', 'az', 'ar', 'ca', 'co', 'ct', 'dc', 'de', 'fl', 'ga', 'hi', 'id', 'il', 'in', 'ia', 'ks', 'ky', 'la', 'me', 'md', 'ma', 'mi', 'mn', 'ms', 'mo', 'mt', 'ne', 'nv', 'nh', 'nj', 'nm', 'ny', 'nc', 'nd', 'oh', 'ok', 'or', 'pa', 'ri', 'sc', 'sd', 'tn', 'tx', 'ut', 'vt', 'va', 'wa', 'wv', 'wi', 'wy']
 #filter down columns, took out 'DRUG_NAME', but may need to add it back after cleaning
 col_vars = ['BUYER_STATE','BUYER_COUNTY','DRUG_CODE','TRANSACTION_DATE','CALC_BASE_WT_IN_GM','DOSAGE_UNIT','MME_Conversion_Factor','dos_str','QUANTITY']
 FIPS_list = pd.read_csv('FIPS_list.csv')
@@ -45,14 +42,3 @@ for path in tqdm(path_list):
     #write to file
     state = path.split('-')[1]
     arcos_temp.to_parquet(f'by_state_parquet/arcos_{state}.parquet', engine='fastparquet')
-
-
-
-# #extra code
-# arcos_id = arcos_id.groupby(['STATE','COUNTY','YEAR'], as_index=False).sum()
-# #filter down FIPS list to state
-# FIPS_list_id = FIPS_list[FIPS_list['State'] == 'id']
-# #merge FIPS onto county
-# arcos_id_w_FIPS = pd.merge(arcos_id, FIPS_list_id, on='COUNTY', how='left')
-# #write to file
-# arcos_id_w_FIPS.to_parquet('by_state_parquet/arcos_id.parquet', engine='fastparquet')
