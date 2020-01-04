@@ -1,6 +1,6 @@
 # Repository for Practical Data Science 1 Mid-Semester Project
 
-See file "DPS Assignment.pdf" in for full details of the project.
+See file "DPS Assignment.pdf" in for full details of the project. The final report, "IDS 690 Paper Combined.pdf", is located in the results folder.
 
 # Washington Post
 The data was taken from Washington Post's [DEA Pain Pill Database](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/)
